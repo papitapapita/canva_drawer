@@ -1,2 +1,2 @@
-# canva_drawer
-You can draw anything you want on the canvas
+# Canva Drawer
+You will be able to draw anything you want on the canvas
