@@ -1,10 +1,9 @@
 const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
-let add1, add2;
+let add1, add2, lines;
+lines = parseInt(prompt("Lines"));
 add1 = 0;
 add2 = canvas.width;
-
-console.log(canvas.width);
 
 function draw(color, x1, y1, x2, y2)
 {
@@ -22,6 +21,6 @@ while((add1 <= canvas.width) && (add2 >= 0))
     draw("red", 0, add1, add1, canvas.width);
     draw("red", canvas.width, add1, add2, canvas.height);
     draw("red", 0, add2, add1, 0);
-    add1 += 10;
-    add2 -= 10;
+    add1 += (canvas.width/lines);
+    add2 -= (canvas.width/lines);
 }
