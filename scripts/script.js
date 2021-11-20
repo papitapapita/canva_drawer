@@ -1,9 +1,28 @@
 const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
+const linesForm = document.getElementById("linesForm");
+const submitButton = document.getElementById("submitButton");
 let add1, add2, lines;
-lines = parseInt(prompt("Lines"));
-add1 = 0;
-add2 = canvas.width;
+
+submitButton.addEventListener('click', pyramide);
+
+function pyramide()
+{
+    context.clearRect(0,0,canvas.width,canvas.height);
+    add1 = 0;
+    add2 = canvas.width;
+    lines = parseInt(linesForm.value);
+    console.log(lines);
+    while((add1 <= canvas.width) && (add2 >= 0))
+    {
+        draw("red", add1, 0, canvas.width, add1);
+        draw("red", 0, add1, add1, canvas.width);
+        draw("red", canvas.width, add1, add2, canvas.height);
+        draw("red", 0, add2, add1, 0);
+        add1 += (canvas.width/lines);
+        add2 -= (canvas.width/lines);
+    }
+}
 
 function draw(color, x1, y1, x2, y2)
 {
@@ -13,14 +32,4 @@ function draw(color, x1, y1, x2, y2)
     context.lineTo(x2,y2);
     context.stroke();
     context.closePath();
-}
-
-while((add1 <= canvas.width) && (add2 >= 0))
-{
-    draw("red", add1, 0, canvas.width, add1);
-    draw("red", 0, add1, add1, canvas.width);
-    draw("red", canvas.width, add1, add2, canvas.height);
-    draw("red", 0, add2, add1, 0);
-    add1 += (canvas.width/lines);
-    add2 -= (canvas.width/lines);
 }

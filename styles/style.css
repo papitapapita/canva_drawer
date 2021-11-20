@@ -4,7 +4,25 @@
   box-sizing: border-box;
 }
 body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
   min-height: 100vh;
+}
+
+form {
+  height: 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+.submit {
+}
+.canvas_section {
   display: flex;
   justify-content: center;
   align-items: center;
