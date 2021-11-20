@@ -2,23 +2,27 @@ const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
 const linesForm = document.getElementById("linesForm");
 const submitButton = document.getElementById("submitButton");
-let add1, add2, lines;
+const colorForm = document.getElementById("colorForm");
+let add1, add2, lines, color;
 
 submitButton.addEventListener('click', pyramide);
 
 function pyramide()
 {
     context.clearRect(0,0,canvas.width,canvas.height);
+
     add1 = 0;
     add2 = canvas.width;
+
     lines = parseInt(linesForm.value);
-    console.log(lines);
+    color = colorForm.value;
+
     while((add1 <= canvas.width) && (add2 >= 0))
     {
-        draw("red", add1, 0, canvas.width, add1);
-        draw("red", 0, add1, add1, canvas.width);
-        draw("red", canvas.width, add1, add2, canvas.height);
-        draw("red", 0, add2, add1, 0);
+        draw(color, add1, 0, canvas.width, add1);
+        draw(color, 0, add1, add1, canvas.width);
+        draw(color, canvas.width, add1, add2, canvas.height);
+        draw(color, 0, add2, add1, 0);
         add1 += (canvas.width/lines);
         add2 -= (canvas.width/lines);
     }
