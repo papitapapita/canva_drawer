@@ -3,9 +3,43 @@ const context = canvas.getContext("2d");
 const linesForm = document.getElementById("linesForm");
 const submitButton = document.getElementById("submitButton");
 const colorForm = document.getElementById("colorForm");
-let add1, add2, lines, color;
+const keys = {
+    LEFT: 37,
+    UP: 38,
+    RIGHT: 39,
+    DOWN: 40
+};
+let add1, add2, lines, color, x, y;
+x = canvas.width/2;
+y = canvas.height/2;
+
+document.addEventListener("keydown", customDraw);
 
 submitButton.addEventListener('click', pyramide);
+
+function customDraw(keycode)
+{
+    switch (keycode.keyCode) {
+        case 37:
+            draw(color,x,y,x-10,y);
+            x -= 10;
+            break;
+        case 38:
+            draw(color,x,y,x,y-10);
+            y -= 10;
+            break;
+        case 39:
+            draw(color,x,y,x+10,y);
+            x += 10;
+            break;
+        case 40:
+            draw(color,x,y,x,y+10);
+            y += 10;
+            break;
+        default:
+            break;
+    }
+}
 
 function pyramide()
 {
